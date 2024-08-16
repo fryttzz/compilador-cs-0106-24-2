@@ -9,17 +9,17 @@ import components.BtnLexical;
 import components.CodeEditor;
 import components.CodeEditorScrollPane;
 import components.Console;
+import components.ConsoleScrollPane;
 
 public class Main extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	//public CodeEditor codeEditor = new CodeEditor();
 	public CodeEditorScrollPane codeEditorScrollPane = new CodeEditorScrollPane();
+	public ConsoleScrollPane consoleScrollPane = new ConsoleScrollPane();
 	public BtnLexical btnLexical = new BtnLexical();
-	public Console console = new Console();
-	public Font defaultFont  = new Font("Arial", Font.PLAIN,  12);
+	public Font defaultFont = new Font("Arial", Font.PLAIN, 12);
 	public String iconURL = "./res/favicon.png";
-	
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,10 +45,9 @@ public class Main extends JFrame {
 		ImageIcon icon = new ImageIcon(iconURL);
 		setIconImage(icon.getImage());
 
-		
 		add(codeEditorScrollPane);
+		add(consoleScrollPane);
 		add(btnLexical);
-		add(console);
 	}
 
 }
