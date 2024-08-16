@@ -11,5 +11,6 @@ public class BtnLexical extends JButton{
 		this.setText("Analise Léxica");
 		this.setBackground(new Color(0xd3d3d3));
 		this.setBounds(582, 16, 186, 50);
+		this.setFocusable(false);
 	}
 }

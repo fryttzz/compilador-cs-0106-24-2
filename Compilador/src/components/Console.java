@@ -1,6 +1,7 @@
 package components;
 
 import java.awt.Color;
+import java.awt.Insets;
 
 import javax.swing.JTextArea;
 
@@ -15,5 +16,6 @@ private static final long serialVersionUID = 1L;
         this.setColumns(20);
         this.setWrapStyleWord(true);
         this.setEnabled(false);
+        this.setMargin(new Insets(8,8,8,8));
 	}
 }
