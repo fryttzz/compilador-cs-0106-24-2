@@ -1,4 +1,4 @@
-package br.com.compilador20242.view;
+package view;
 
 import javax.swing.JFrame;
 

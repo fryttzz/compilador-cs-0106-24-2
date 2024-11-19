@@ -1,4 +1,4 @@
-package br.com.compilador20242.model;
+package model;
 
 public class PalavraReservada {
 	

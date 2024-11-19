@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -6,10 +7,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import components.BtnLexical;
-import components.CodeEditor;
 import components.CodeEditorScrollPane;
-import components.Console;
 import components.ConsoleScrollPane;
+import controller.AnaliseLexica;
 
 public class Main extends JFrame {
 
@@ -31,6 +31,15 @@ public class Main extends JFrame {
 				}
 			}
 		});
+
+		String str = "int x+=12; 13 144\n"
+				   + " 		 	 	1	 54 abc 12.7 \n"
+				   + "as . ( ) \"\n"
+				   + "13.4 + 8 *= 7\n"
+				   + "float continue ;\n"
+				   + "//isso e um comentario x = 10";
+		//int isso;
+		System.out.println(AnaliseLexica.analisar(str));
 	}
 
 	public Main() {

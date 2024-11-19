@@ -2,7 +2,6 @@ package components;
 
 import java.awt.Color;
 import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
 
 public class CodeEditorScrollPane extends JScrollPane {
 	private static final long serialVersionUID = 1L;
