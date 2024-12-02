@@ -13,4 +13,8 @@ public class BtnLexical extends JButton {
 		this.setBounds(582, 16, 186, 50);
 		this.setFocusable(false);
 	}
+
+	public javax.swing.JButton getBtnLexical() {
+        return this;
+    }
 }
