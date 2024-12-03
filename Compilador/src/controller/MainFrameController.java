@@ -16,10 +16,10 @@ public class MainFrameController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // codigo = this.mainFrame.getText().getText();
-
+        String codigo = this.mainFrame.getjTextAreaCode().getText();
         if (e.getSource() == this.mainFrame.getBtnLexical()) {
             System.out.println("Funcionou!!");
+            System.out.println(AnaliseLexicaController.analisar(codigo));
         }
     }
 
