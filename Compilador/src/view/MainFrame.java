@@ -2,20 +2,19 @@ package view;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.ScrollPaneConstants;
 
 import java.awt.Insets;
 import java.awt.Color;
 import java.awt.Font;
 
-import components.ConsoleScrollPane;
 import controller.MainFrameController;
 
 public class MainFrame extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;
-	public ConsoleScrollPane consoleScrollPane = new ConsoleScrollPane();
-	public Font defaultFont = new Font("Arial",  Font.PLAIN, 12);
-	public Font codeFont = new  Font("Fira Code",  Font.PLAIN, 12);
+	public Font defaultFont = new Font("Arial", Font.PLAIN, 12);
+	public Font codeFont = new Font("Fira Code", Font.PLAIN, 12);
 	public String iconURL = "./res/favicon.png";
 
 	public MainFrame() {
@@ -26,7 +25,9 @@ public class MainFrame extends javax.swing.JFrame {
 	private void initComponents() {
 		btnLexical = new javax.swing.JButton();
 		jTextAreaCode = new javax.swing.JTextArea();
+		jTextAreaConsole = new javax.swing.JTextArea();
 		jScrollPaneCode = new javax.swing.JScrollPane(jTextAreaCode);
+		jScrollPaneConsole = new javax.swing.JScrollPane(jTextAreaConsole);
 		// jPaneLineNumber = new components.TextLineNumber(jTextAreaCode);
 
 		// MainFrame layout settings
@@ -64,8 +65,25 @@ public class MainFrame extends javax.swing.JFrame {
 		jScrollPaneCode.setRowHeaderView(jPaneLineNumber);
 		jScrollPaneCode.setBorder(null);
 
+		// jTextArea Console
+		jTextAreaConsole.setBackground(new Color(0xe3e3e3));
+		jTextAreaConsole.setLineWrap(true);
+		jTextAreaConsole.setEnabled(false);
+		jTextAreaConsole.setMargin(new Insets(8, 8, 8, 8));
+		jTextAreaConsole.setForeground(new Color(0x323232));
+		jTextAreaConsole.setDisabledTextColor(new Color(0x323232));
+		jTextAreaConsole.setFont(defaultFont);
+
+		// jScrollPane Caixa Scroll Console
+		jScrollPaneConsole.setBounds(16, 432, 550, 113);
+		jScrollPaneConsole.setBackground(new Color(0xe3e3e3));
+		jScrollPaneConsole.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		// jScrollPaneConsole.setHorizontalScrollBar(horizontalScrollBar);
+		jScrollPaneConsole.setViewportView(jTextAreaConsole);
+		jScrollPaneConsole.setBorder(null);
+
 		add(jScrollPaneCode);
-		add(consoleScrollPane);
+		add(jScrollPaneConsole);
 		add(btnLexical);
 	}
 
@@ -74,7 +92,9 @@ public class MainFrame extends javax.swing.JFrame {
 
 	private javax.swing.JButton btnLexical;
 	private javax.swing.JTextArea jTextAreaCode;
+	private javax.swing.JTextArea jTextAreaConsole;
 	private javax.swing.JScrollPane jScrollPaneCode;
+	private javax.swing.JScrollPane jScrollPaneConsole;
 	private components.TextLineNumber jPaneLineNumber;
 
 	public javax.swing.JButton getBtnLexical() {
@@ -83,6 +103,10 @@ public class MainFrame extends javax.swing.JFrame {
 
 	public javax.swing.JTextArea getjTextAreaCode() {
 		return jTextAreaCode;
+	}
+
+	public javax.swing.JTextArea getjTextAreaConsole() {
+		return jTextAreaConsole;
 	}
 
 	public javax.swing.JScrollPane getjScrollPaneCode() {
@@ -95,6 +119,10 @@ public class MainFrame extends javax.swing.JFrame {
 
 	public void setjTextAreaCode(javax.swing.JTextArea jTextAreaCode) {
 		this.jTextAreaCode = jTextAreaCode;
+	}
+
+	public void setjTextAreaConsole(javax.swing.JTextArea jTextAreaConsole) {
+		this.jTextAreaConsole = jTextAreaConsole;
 	}
 
 }

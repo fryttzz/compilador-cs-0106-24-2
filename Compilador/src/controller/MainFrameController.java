@@ -19,7 +19,7 @@ public class MainFrameController implements ActionListener {
         String codigo = this.mainFrame.getjTextAreaCode().getText();
         if (e.getSource() == this.mainFrame.getBtnLexical()) {
             System.out.println("Funcionou!!");
-            System.out.println(AnaliseLexicaController.analisar(codigo));
+            this.mainFrame.getjTextAreaConsole().setText(AnaliseLexicaController.analisar(codigo));
         }
     }
 
