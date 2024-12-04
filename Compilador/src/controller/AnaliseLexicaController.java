@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Stack;
+
 import model.Delimitador;
 import model.Operador;
 import model.PalavraReservada;
@@ -33,6 +35,8 @@ public class AnaliseLexicaController {
 		int numLinha = 0;
 		// vari�vel que determina se token � v�lido ou n�o
 		boolean classificado = false;
+		boolean balanceado = true;
+		Stack<String> delimitadoresPilha = new Stack<>();
 		/**
 		 * Vetor com todas as linhas digitadas pelo programador
 		 * as linhas do programador vem pelo parametro fonte
@@ -127,11 +131,26 @@ public class AnaliseLexicaController {
 				 */
 				for (String delimitador : Delimitador.DELIMITADORES) {
 					if (palavra.equals(delimitador)) {
-						log.append("Linha ").append(numLinha).append(": (");
-						log.append(palavra).append(", DELIMITADOR)").append("\n");
-						classificado = true;
+						if (palavra.equals("{") || palavra.equals("[") || palavra.equals("(")) {
+							delimitadoresPilha.push(palavra);
+						} else if (palavra.equals("}") || palavra.equals("]") || palavra.equals(")")) {
+							if (delimitadoresPilha.empty()) {
+								balanceado = false;
+							}
+							delimitadoresPilha.pop();
+						} else {
+							log.append("Linha ").append(numLinha).append(": (");
+							log.append(palavra).append(", DELIMITADOR)").append("\n");
+							classificado = true;
+						}
 						break;
 					}
+				}
+
+				if (balanceado & delimitadoresPilha.empty()) {
+					System.out.println("Desbalanciado");
+				} else {
+					System.out.println("Balanciado");
 				}
 
 				// se a palavra for um coment�rio de linha ele vai sair do for das

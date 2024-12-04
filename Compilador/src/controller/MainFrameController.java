@@ -18,22 +18,7 @@ public class MainFrameController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String codigo = this.mainFrame.getjTextAreaCode().getText();
         if (e.getSource() == this.mainFrame.getBtnLexical()) {
-            System.out.println("Funcionou!!");
             this.mainFrame.getjTextAreaConsole().setText(AnaliseLexicaController.analisar(codigo));
         }
     }
-
-    // private void limparCampos(JPanel painelaLimpar) {
-
-    // Object[] objetos = painelaLimpar.getComponents();
-    // for (Object objetoAtual : objetos) {
-    // if (objetoAtual instanceof JTextField) {
-
-    // ((JTextField) objetoAtual).setText("");
-    // } else if (objetoAtual instanceof JFormattedTextField) {
-
-    // ((JFormattedTextField) objetoAtual).setText("");
-    // }
-    // }
-    // }
 }
