@@ -15,7 +15,7 @@ public class MainFrame extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
 	public Font defaultFont = new Font("Arial", Font.PLAIN, 12);
 	public Font codeFont = new Font("Fira Code", Font.PLAIN, 12);
-	public String iconURL = "./res/favicon.png";
+	public String iconURL = "C://projetos/desktop/compilador-cs-0106-24-2/Compilador/res/favicon.png";
 
 	public MainFrame() {
 		initComponents();
