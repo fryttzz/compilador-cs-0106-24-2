@@ -134,24 +134,24 @@ public class AnaliseLexicaController {
 						if (palavra.equals("{") || palavra.equals("[") || palavra.equals("(")) {
 							delimitadoresPilha.push(palavra);
 						} else if (palavra.equals("}") || palavra.equals("]") || palavra.equals(")")) {
-							if (delimitadoresPilha.empty()) {
+							if (!delimitadoresPilha.empty()) {
+								delimitadoresPilha.pop();
+							} else {
 								balanceado = false;
 							}
-							delimitadoresPilha.pop();
-						} else {
-							log.append("Linha ").append(numLinha).append(": (");
-							log.append(palavra).append(", DELIMITADOR)").append("\n");
-							classificado = true;
 						}
+						log.append("Linha ").append(numLinha).append(": (");
+						log.append(palavra).append(", DELIMITADOR)").append("\n");
+						classificado = true;
 						break;
 					}
 				}
 
-				if (balanceado & delimitadoresPilha.empty()) {
-					System.out.println("Desbalanciado");
-				} else {
-					System.out.println("Balanciado");
-				}
+				// if (balanceado && delimitadoresPilha.empty()) {
+				// 	System.out.println("balanciado");
+				// } else {
+				// 	System.out.println("desbalanciado");
+				// }
 
 				// se a palavra for um coment�rio de linha ele vai sair do for das
 				// linhas
