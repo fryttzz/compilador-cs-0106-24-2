@@ -333,9 +333,9 @@ public class TextLineNumber extends JPanel implements CaretListener, DocumentLis
 		return y - descent;
 	}
 
-//
-//  Implement CaretListener interface
-//
+	//
+	// Implement CaretListener interface
+	//
 	@Override
 	public void caretUpdate(CaretEvent e) {
 		// Get the line the caret is positioned on
@@ -347,15 +347,15 @@ public class TextLineNumber extends JPanel implements CaretListener, DocumentLis
 		// Need to repaint so the correct line number can be highlighted
 
 		if (lastLine != currentLine) {
-//			repaint();
+			// repaint();
 			getParent().repaint();
 			lastLine = currentLine;
 		}
 	}
 
-//
-//  Implement DocumentListener interface
-//
+	//
+	// Implement DocumentListener interface
+	//
 	@Override
 	public void changedUpdate(DocumentEvent e) {
 		documentChanged();
@@ -388,7 +388,7 @@ public class TextLineNumber extends JPanel implements CaretListener, DocumentLis
 
 					if (rect != null && rect.y != lastHeight) {
 						setPreferredWidth();
-//						repaint();
+						// repaint();
 						getParent().repaint();
 						lastHeight = rect.y;
 					}
@@ -398,9 +398,9 @@ public class TextLineNumber extends JPanel implements CaretListener, DocumentLis
 		});
 	}
 
-//
-//  Implement PropertyChangeListener interface
-//
+	//
+	// Implement PropertyChangeListener interface
+	//
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		if (evt.getNewValue() instanceof Font) {
@@ -410,8 +410,8 @@ public class TextLineNumber extends JPanel implements CaretListener, DocumentLis
 				lastDigits = 0;
 				setPreferredWidth();
 			} else {
-//				repaint();
-				getParent().repaint();
+				repaint();
+				// getParent().repaint();
 			}
 		}
 	}

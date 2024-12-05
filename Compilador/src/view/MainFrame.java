@@ -28,7 +28,7 @@ public class MainFrame extends javax.swing.JFrame {
 		jTextAreaConsole = new javax.swing.JTextArea();
 		jScrollPaneCode = new javax.swing.JScrollPane(jTextAreaCode);
 		jScrollPaneConsole = new javax.swing.JScrollPane(jTextAreaConsole);
-		// jPaneLineNumber = new components.TextLineNumber(jTextAreaCode);
+		jPaneLineNumber = new components.TextLineNumber(jTextAreaCode);
 
 		// MainFrame layout settings
 		setTitle("Compilador CC - 0106 - 2024/2");
